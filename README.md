@@ -1,5 +1,11 @@
 # Group4_Cardiovascular_Disease
 
+## Group Members:
+ Darvy Teav, Tracey Geneau, Shelly Girdhar Sakkerwal, Melissa Wegrzyn
+
+## Tableau link:
+https://public.tableau.com/app/profile/shelly.girdhar.sakkerwal/viz/CardiovascularDiseasePrediction_16973449312850/Story1
+
 ## Files and Folders
 * Data Folder
   * cardio_data_processed.csv is to be used with Cardiovascular_model.ipynb and Cardiovascular_model_auto_optimization.ipynb
@@ -17,7 +23,7 @@
 *  **Removed Columns:**<br/>
 &emsp; We removed age, api_hi, api_lo, id, cardio, bp_category, height, and weight
 *  **Cleaning up the data:** <br/>
-After remvoing redundancies and irrelavent data, we first used a box plot whisker to find all the outliers and remove them from our data set. The raw data start at 68205 rows down to 62505 rows  
+After remvoing redundancies and irrelavent data, we first used a box plot whisker to find all the outliers and remove them from our data set. The raw data start at 68205 rows down to 62505 rows. We encoded and one-hot encoded to categorized all nominal data. 
 
 ## Results 
 *  **Model: Random Forest** <br/>
@@ -26,7 +32,7 @@ After remvoing redundancies and irrelavent data, we first used a box plot whiske
 *  **Model: XGBoost** <br/>
  To run the model, we ended up using the clean_cardio_data.csv. Just like our Random Forst model it gve the same accuracy of 68.59%. The Confusion Matrix and Classification report spitted out very similar results. It isn't too suprisingly considering that they are quite similar in how it makes decisions. We did compare the training accuracy with the validation accuracy to see if there is possible change of overfitting, but as it turns out the model is predicting as it should 
 ![image](https://github.com/Dav5T/Group4_Cardiovascular_Disease/assets/130593953/e99f4b8b-205e-4196-9f37-a9a89f24a09c)
-*  **Model: Keras Hypertuner and Deep Learning** <br/>
+*  **Model: Keras Hypertuner and Multilayer Perceptrons** <br/>
 We first used the raw csv file (cardio_data_processed.csv) to clean up the data before running both. We ran the optimizer and the actual Neural Network on 2 different notebooks because the model would create extra layers from the optimizer when I wanted to test out the Deep Learning model. We ran optimizer a couple of times, and it would always output a different result. Once we saw that the best model was over 70% accuracy, we would stop the search and get a summary of the best model. Then we would use the combination to run the actual model. The model we chose was as follow:<br/><br/>
 Model: "sequential"<br/>
 =================================================================<br/>
@@ -47,4 +53,9 @@ The model was able to give us an accuracy of 70.08%. We also did a comparison of
 The confusion matrix had zeros for false negative and true negative. When it came to predicting at risk for cardiovascular disease we also got zeros based on the classification report. We decided to look at the ROC curve and calculate AUC to see if the model is accuracy is actually 70%. It turns out that AUC is 0.729 which is higher than the training accuracy. In addition, we inputted new information of a patient to see if the model can predict if someone is at risk of cardiovascular disease and it turned out that it was able to predict that the patient is at risk.
 ![image](https://github.com/Dav5T/Group4_Cardiovascular_Disease/assets/130593953/e0bfd29c-489a-4e6e-a1d5-4af232548682)
 
+## Summary
+* **Chosen model: Multilayer Perceptrons**<br/>
+We decided to go with the Multilayer Perceptron since it gave us the highest training accuracy. XGBoost on the other hand would have been the second option since it ran the fastest of all 3. Even though Multilayer Perceptron takes longer to run and train, there are always room for improvements. Before cleaning up the data, we trained our model to see what accuracy it would achieve, and it was also able to achieve a 70% accuracy. However, we did find that adding more levels of age range to the data did improve the accuracy by a little bit, but not significant enough.<br/>
+* **Recommendations**<br/>
+We could collect additional information/data in the future that we also believe to contribute to cardiovascular disease, such as tracking hours of sleep. In terms current features we can also add extra categories such as exercise. Rather than just having yes and no, we could add the hours of exercise per week. BMI is just one of the standard ratios to help evaluate an individual’s health. However, we also know that it isn't accurate. Instead of BMI, we can do a fat pinch test to incorporate fat index. Every time we receive a reasonable amount of new data, we can add it to the data set to retrain it to get possibly help increase accuracy and recall.
 
