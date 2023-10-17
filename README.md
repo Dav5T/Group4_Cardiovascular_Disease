@@ -1,10 +1,13 @@
 # Group4_Cardiovascular_Disease
 
-## Group Members:
+## Group Members
  Darvy Teav, Tracey Geneau, Shelly Girdhar Sakkerwal, Melissa Wegrzyn
 
-## Tableau link:
+## Tableau link
 https://public.tableau.com/app/profile/shelly.girdhar.sakkerwal/viz/CardiovascularDiseasePrediction_16973449312850/Story1
+
+## Data
+https://www.kaggle.com/datasets/colewelkins/cardiovascular-disease/data
 
 ## Files and Folders
 * Data Folder
@@ -50,12 +53,12 @@ Activation function: tanh<br/>
 Epoch: 7<br/>
 =================================================================<br/>
 The model was able to give us an accuracy of 70.08%. We also did a comparison of the training and validation accuracy to see if there was overfitting and as it turns out there wasn't any.
-The confusion matrix had zeros for false negative and true negative. When it came to predicting at risk for cardiovascular disease we also got zeros based on the classification report. We decided to look at the ROC curve and calculate AUC to see if the model is accuracy is actually 70%. It turns out that AUC is 0.729 which is higher than the training accuracy. In addition, we inputted new information of a patient to see if the model can predict if someone is at risk of cardiovascular disease and it turned out that it was able to predict that the patient is at risk.
+The confusion matrix had zeros for false negative and true negative. When it came to predicting at risk for cardiovascular disease we also got zeros based on the classification report. We decided to look at the ROC curve and calculate AUC to see if the model is accuracy is actually 70%. It turns out that AUC is 0.729 which is higher than the training accuracy. In addition, we inputted new information of a patient to see if the model can predict if someone is at risk of cardiovascular disease and it turned out that it was able to predict that the patient has cardiovascular disease. Recal was 0.65 for cardiovascular disease and 0.76 recall for patient without cardiovascular disease. 
 ![image](https://github.com/Dav5T/Group4_Cardiovascular_Disease/assets/130593953/e0bfd29c-489a-4e6e-a1d5-4af232548682)
 
 ## Summary
 * **Chosen model: Multilayer Perceptrons**<br/>
-We decided to go with the Multilayer Perceptron since it gave us the highest training accuracy. XGBoost on the other hand would have been the second option since it ran the fastest of all 3. Even though Multilayer Perceptron takes longer to run and train, there are always room for improvements. Before cleaning up the data, we trained our model to see what accuracy it would achieve, and it was also able to achieve a 70% accuracy. However, we did find that adding more levels of age range to the data did improve the accuracy by a little bit, but not significant enough.<br/>
+We decided to go with the Multilayer Perceptron since it gave us the highest training accuracy and the highest recall which is the one we are most concern about as we don't want the least amount of false negative as possible. XGBoost on the other hand would have been the second option since it ran the fastest of all 3. Even though Multilayer Perceptron takes longer to run and train, there are always room for improvements. Before cleaning up the data, we trained our model to see what accuracy it would achieve, and it was also able to achieve a 70% accuracy. However, we did find that adding more levels/bins of age to the data did improve the accuracy by a little bit, but not significant enough.<br/>
 * **Recommendations**<br/>
 We could collect additional information/data that also contribute to cardiovascular disease, such as tracking hours of sleep. For the current features, we can add extra categories such as exercise. Rather than just having yes and no, we can incorporate the hours of exercise per week. BMI is just one of the standard ratios to help evaluate an individual’s health. However, we also know that it isn't accurate. Instead of BMI, we can do a fat pinch test to incorporate fat index. For blood pressure, we can use a different type of measurement such as Mean Arterial Pressure instead of using the typical category of Normal, Hypertension, etc. Every time we receive a reasonable amount of new data, we can add it to the data set to retrain it to get possibly help increase accuracy and recall.
 
